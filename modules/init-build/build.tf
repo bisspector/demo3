@@ -1,11 +1,15 @@
 data "aws_caller_identity" "current" {}
 
 resource "null_resource" "build" {
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+
   provisioner "local-exec" {
     command = "bash build.sh"
     working_dir = var.working_dir
     environment = {
-      REPO_URL = var.repo_url
+      REPO_URL = var.ecr_repo_url
       TAG = var.image_tag 
       REGISTRY_ID = data.aws_caller_identity.current.account_id
       REPO_REGION = var.aws_region

@@ -2,7 +2,7 @@ variable "working_dir" {
   type = string
 }
 
-variable "repo_url" {
+variable "ecr_repo_url" {
   type = string
 }
 

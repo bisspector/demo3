@@ -3,7 +3,10 @@ locals {
   app_name = "test-app"
   aws_region = "eu-central-1"
   availability_zones_count = 2
-  image_tag = "0.0.1"
+  image_tag = "0.0.3"
+  app_port = 80
+  app_count = 1
+  health_check_path = "/"
 }
 
 inputs = {
@@ -12,6 +15,9 @@ inputs = {
   aws_region = local.aws_region
   availability_zones_count = local.availability_zones_count
   image_tag = local.image_tag
+  app_port = local.app_port
+  app_count = local.app_count
+  health_check_path = local.health_check_path
 }
 
 generate "terraform_config" {

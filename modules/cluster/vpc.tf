@@ -5,12 +5,7 @@ data "aws_availability_zones" "available" {
 
 // VPC
 resource "aws_vpc" "main" {
-  cidr_block       = var.main_vpc_cidr
-  instance_tenancy = "default"
-
-  tags = {
-    Name = "prod-vpc"
-  }
+  cidr_block = var.main_vpc_cidr
 }
 
 // Public subnet

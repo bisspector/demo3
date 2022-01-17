@@ -11,6 +11,6 @@ include "root" {
 }
 
 inputs = {
-  repo_url = dependency.ecr.outputs.ecr_repo_url
+  ecr_repo_url = dependency.ecr.outputs.ecr_repo_url
   working_dir = format("%s/../../../app", get_terragrunt_dir())
 }
